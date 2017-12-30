@@ -19,17 +19,17 @@ $ npm install --save-dev gulp-bom
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var bom = require('gulp-bom');
+const gulp = require('gulp');
+const bom = require('gulp-bom');
 
-gulp.task('default', function () {
-	return gulp.src('app.js')
+gulp.task('default', () =>
+	gulp.src('app.js')
 		.pipe(bom())
-		.pipe(gulp.dest('dist'));
-});
+		.pipe(gulp.dest('dist'))
+);
 ```
 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

@@ -1,17 +1,18 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var BOM = new Buffer('\uFEFF');
+const through = require('through2');
+const PluginError = require('plugin-error');
 
-module.exports = function () {
-	return through.obj(function (file, enc, cb) {
+const BOM = Buffer.from('\uFEFF');
+
+module.exports = () => {
+	return through.obj((file, enc, cb) => {
 		if (file.isNull()) {
 			cb(null, file);
 			return;
 		}
 
 		if (file.isStream()) {
-			cb(new gutil.PluginError('gulp-bom', 'Streaming not supported'));
+			cb(new PluginError('gulp-bom', 'Streaming not supported'));
 			return;
 		}
 

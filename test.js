@@ -1,20 +1,19 @@
 'use strict';
-var test = require('ava');
-var gutil = require('gulp-util');
-var fn = require('./');
+const test = require('ava');
+const Vinyl = require('vinyl');
+const m = require('.');
 
-test(function (t) {
+test.cb(t => {
 	t.plan(1);
 
-	var stream = fn();
+	const stream = m();
 
-	stream.once('data', function (file) {
-		t.assert(file.contents.toString() === '\uFEFFunicorn');
+	stream.once('data', file => {
+		t.is(file.contents.toString(), '\uFEFFunicorn');
+		t.end();
 	});
 
-	stream.write(new gutil.File({
-		contents: new Buffer('unicorn')
+	stream.end(new Vinyl({
+		contents: Buffer.from('unicorn')
 	}));
-
-	stream.end();
 });
