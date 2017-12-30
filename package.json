@@ -1,41 +1,41 @@
 {
-	"name": "gulp-bom",
-	"version": "1.0.0",
-	"description": "Add a UTF-8 BOM to files",
-	"license": "MIT",
-	"repository": "sindresorhus/gulp-bom",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
-	},
-	"engines": {
-		"node": ">=4"
-	},
-	"scripts": {
-		"test": "xo && ava"
-	},
-	"files": [
-		"index.js"
-	],
-	"keywords": [
-		"gulpplugin",
-		"bom",
-		"byte",
-		"order",
-		"mark",
-		"utf8",
-		"utf-8",
-		"add",
-		"prepend"
-	],
-	"dependencies": {
-		"plugin-error": "^0.1.2",
-		"through2": "^2.0.0"
-	},
-	"devDependencies": {
-		"ava": "*",
-		"vinyl": "^2.1.0",
-		"xo": "*"
-	}
+  "name": "gulp-bom",
+  "version": "2.0.0",
+  "description": "Add a UTF-8 BOM to files",
+  "license": "MIT",
+  "repository": "sindresorhus/gulp-bom",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "bom",
+    "byte",
+    "order",
+    "mark",
+    "utf8",
+    "utf-8",
+    "add",
+    "prepend"
+  ],
+  "dependencies": {
+    "plugin-error": "^0.1.2",
+    "through2": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "vinyl": "^2.1.0",
+    "xo": "*"
+  }
 }
