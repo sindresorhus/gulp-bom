@@ -1,19 +1,17 @@
 'use strict';
 const test = require('ava');
 const Vinyl = require('vinyl');
-const m = require('.');
+const pEvent = require('p-event');
+const gulpBom = require('.');
 
-test.cb(t => {
-	t.plan(1);
-
-	const stream = m();
-
-	stream.once('data', file => {
-		t.is(file.contents.toString(), '\uFEFFunicorn');
-		t.end();
-	});
+test('main', async t => {
+	const stream = gulpBom();
+	const dataPromise = pEvent(stream, 'data');
 
 	stream.end(new Vinyl({
 		contents: Buffer.from('unicorn')
 	}));
+
+	const file = await dataPromise;
+	t.is(file.contents.toString(), '\uFEFFunicorn');
 });

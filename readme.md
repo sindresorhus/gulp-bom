@@ -1,6 +1,6 @@
 # gulp-bom [![Build Status](https://travis-ci.org/sindresorhus/gulp-bom.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-bom)
 
-> Add a [UTF-8 BOM](http://en.wikipedia.org/wiki/Byte_order_mark#UTF-8) to files
+> Add a [UTF-8 BOM](https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8) to files
 
 From Wikipedia:
 
@@ -22,14 +22,9 @@ $ npm install --save-dev gulp-bom
 const gulp = require('gulp');
 const bom = require('gulp-bom');
 
-gulp.task('default', () =>
+exports.default = () => (
 	gulp.src('app.js')
 		.pipe(bom())
 		.pipe(gulp.dest('dist'))
 );
 ```
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

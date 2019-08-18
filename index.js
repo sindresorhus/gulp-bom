@@ -5,18 +5,18 @@ const PluginError = require('plugin-error');
 const BOM = Buffer.from('\uFEFF');
 
 module.exports = () => {
-	return through.obj((file, enc, cb) => {
+	return through.obj((file, encoding, callback) => {
 		if (file.isNull()) {
-			cb(null, file);
+			callback(null, file);
 			return;
 		}
 
 		if (file.isStream()) {
-			cb(new PluginError('gulp-bom', 'Streaming not supported'));
+			callback(new PluginError('gulp-bom', 'Streaming not supported'));
 			return;
 		}
 
 		file.contents = Buffer.concat([BOM, file.contents]);
-		cb(null, file);
+		callback(null, file);
 	});
 };
