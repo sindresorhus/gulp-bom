@@ -1,4 +1,4 @@
-# gulp-bom [![Build Status](https://travis-ci.org/sindresorhus/gulp-bom.svg?branch=master)](https://travis-ci.org/sindresorhus/gulp-bom)
+# gulp-bom
 
 > Add a [UTF-8 BOM](https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8) to files
 
