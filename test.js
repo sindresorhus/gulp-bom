@@ -1,15 +1,15 @@
-'use strict';
-const test = require('ava');
-const Vinyl = require('vinyl');
-const pEvent = require('p-event');
-const gulpBom = require('.');
+import {Buffer} from 'node:buffer';
+import test from 'ava';
+import Vinyl from 'vinyl';
+import {pEvent} from 'p-event';
+import gulpBom from './index.js';
 
 test('main', async t => {
 	const stream = gulpBom();
 	const dataPromise = pEvent(stream, 'data');
 
 	stream.end(new Vinyl({
-		contents: Buffer.from('unicorn')
+		contents: Buffer.from('unicorn'),
 	}));
 
 	const file = await dataPromise;

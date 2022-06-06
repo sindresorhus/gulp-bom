@@ -8,21 +8,19 @@ From Wikipedia:
 
 Gulp strips the BOM as it's useless. This is for the few dumb tools that do require it. Don't use this unless you really need to.
 
-
 ## Install
 
+```sh
+npm install --save-dev gulp-bom
 ```
-$ npm install --save-dev gulp-bom
-```
-
 
 ## Usage
 
 ```js
-const gulp = require('gulp');
-const bom = require('gulp-bom');
+import gulp from 'gulp';
+import bom from 'gulp-bom';
 
-exports.default = () => (
+export default () => (
 	gulp.src('app.js')
 		.pipe(bom())
 		.pipe(gulp.dest('dist'))

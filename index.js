@@ -1,22 +1,21 @@
-'use strict';
-const through = require('through2');
-const PluginError = require('plugin-error');
+import {Buffer} from 'node:buffer';
+import transformStream from 'easy-transform-stream';
+import PluginError from 'plugin-error';
 
 const BOM = Buffer.from('\uFEFF');
 
-module.exports = () => {
-	return through.obj((file, encoding, callback) => {
+export default function gulpBom() {
+	return transformStream({objectMode: true}, async file => {
 		if (file.isNull()) {
-			callback(null, file);
-			return;
+			return file;
 		}
 
 		if (file.isStream()) {
-			callback(new PluginError('gulp-bom', 'Streaming not supported'));
-			return;
+			throw new PluginError('gulp-bom', 'Streaming not supported');
 		}
 
 		file.contents = Buffer.concat([BOM, file.contents]);
-		callback(null, file);
+
+		return file;
 	});
-};
+}
