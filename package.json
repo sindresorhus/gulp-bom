@@ -1,6 +1,6 @@
 {
 	"name": "gulp-bom",
-	"version": "4.0.0",
+	"version": "5.0.0",
 	"description": "Add a UTF-8 BOM to files",
 	"license": "MIT",
 	"repository": "sindresorhus/gulp-bom",
